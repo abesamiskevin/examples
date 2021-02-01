@@ -1,4 +1,4 @@
-service: serverless-fastify
+service: fastify
 
 provider:
   name: aws
@@ -6,7 +6,7 @@ provider:
 
 functions:
   app:
-    handler: src/index.handler
+    handler: dist/index.handler
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'

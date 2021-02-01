@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "node",
+		"noEmit": true,
+		"target": "ES2019"
+	}
+}
