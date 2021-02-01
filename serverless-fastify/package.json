@@ -1,0 +1,19 @@
+{
+	"name": "serverless-fastify",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon --exec \"sls offline\""
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"fastify": "^3.11.0",
+		"serverless-http": "^2.7.0"
+	},
+	"devDependencies": {
+		"serverless-offline": "^6.8.0"
+	}
+}
