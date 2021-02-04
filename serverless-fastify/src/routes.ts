@@ -4,4 +4,4 @@ async function routes(fastify, options) {
 	});
 }
 
-export default routes;
+module.exports = routes;

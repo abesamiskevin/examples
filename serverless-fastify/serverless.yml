@@ -6,14 +6,18 @@ provider:
 
 functions:
   app:
-    handler: dist/index.handler
+    handler: src/index.handler
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
 
 plugins:
+  - serverless-webpack
   - serverless-offline
 
 custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
   serverless-offline:
     noPrependStageInUrl: true

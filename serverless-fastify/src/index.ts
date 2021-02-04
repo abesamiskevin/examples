@@ -1,9 +1,7 @@
-import serverless from 'serverless-http';
-import fastify from 'fastify';
-
-import routes from './routes';
+const serverless = require('serverless-http');
+const fastify = require('fastify');
 
 const app = fastify();
-app.register(routes);
+app.register(require('./routes'));
 
-module.exports.handler = serverless(app as any);
+exports.handler = serverless(app as any);
