@@ -1,6 +1,7 @@
+const { ESBuildPlugin } = require('esbuild-loader');
 const nodeExternals = require('webpack-node-externals');
-const slsw = require('serverless-webpack');
 const path = require('path');
+const slsw = require('serverless-webpack');
 
 module.exports = {
 	entry: slsw.lib.entries,
@@ -20,12 +21,22 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.(ts|js)x?$/,
-				exclude: /node_modules/,
-				loader: 'babel-loader'
+				test: /\.tsx?$/,
+				loader: 'esbuild-loader',
+				exclude: [
+					[
+						path.resolve(__dirname, 'node_modules'),
+						path.resolve(__dirname, '.webpack')
+					]
+				],
+				options: {
+					loader: 'ts',
+					target: 'es2019'
+				}
 			}
 		]
 	},
 	target: 'node',
+	plugins: [new ESBuildPlugin()],
 	externals: [nodeExternals()]
 };
