@@ -1,4 +1,4 @@
-service: fastify
+service: serverless
 
 provider:
   name: aws
@@ -12,12 +12,8 @@ functions:
       - http: 'ANY {proxy+}'
 
 plugins:
-  - serverless-webpack
   - serverless-offline
 
 custom:
-  webpack:
-    webpackConfig: ./webpack.config.js
-    includeModules: true
   serverless-offline:
     noPrependStageInUrl: true
